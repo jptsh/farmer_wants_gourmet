@@ -9,10 +9,11 @@ class BoxesController < ApplicationController
   end
 
   def show
+    #@order = Order.new
   end
 
   def new
-    @box = Box.new
+    #@box = Box.new
   end
 
   def create
