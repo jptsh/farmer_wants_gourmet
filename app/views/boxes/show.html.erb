@@ -2,3 +2,12 @@
 <h1><%= @box.name %></h1>
 </div>
 
+<p>Name:<%= @box.name %></p>
+<p>Price in €: <%= @box.price %></p>
+<p>Farmer's ID: <%= @box.user_id %></p>
+
+<%= link_to 'Back to all boxes', boxes_path, class: 'btn btn-primary' %>
+
+<%= simple_form_for ([@box, @order]) do |f| %>
+<%= f.submit "Buy the box", class: 'btn btn-primary m-2 col-2' %>
+<% end %>
