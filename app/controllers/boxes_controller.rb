@@ -1,18 +1,19 @@
 class BoxesController < ApplicationController
 
+
   before_action :set_box, only: [ :show ]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-  
 
   def index
     @boxes = Box.all
   end
 
   def show
+    #@order = Order.new
   end
 
   def new
-    @box = Box.new
+    #@box = Box.new
   end
 
   def create
@@ -30,7 +31,7 @@ class BoxesController < ApplicationController
   def home
   end
 
-private
+  private
 
   def set_box
     @box = Box.find(params[:id])
@@ -39,6 +40,5 @@ private
   def box_params
     params.require(:box).permit(:name)
   end
-
 
 end
