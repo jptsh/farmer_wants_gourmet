@@ -1,12 +1,14 @@
 class BoxesController < ApplicationController
-  before_action :set_box, only [:show, :destroy, :update ]
+
+  before_action :set_box, only: [ :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   
+
   def index
     @boxes = Box.all
   end
 
   def show
-    @box = Box.find(params[:id])
   end
 
   def new
@@ -16,11 +18,12 @@ class BoxesController < ApplicationController
   def create
     @box = Box.new(box_params)
     if @box.save
-      redirect_to @cocktail, notice: 'Box was successfully created.'
+      redirect_to @box, notice: 'Box was successfully created.'
     else
       render :new
     end
   end
+  
 
   def destroy
   end
