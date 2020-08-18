@@ -5,15 +5,15 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.find(params[:order_id])
-    @dose.save
-    redirect_to user_path(@home)
+    @order.save!
+    # redirect_to user_path(@home)
 
-    render "order/show"
+    # render "order/show"
   end
 
   private
 
   def order_params
-    params.require(:order).permit(:description, :ingredient_id)
+    params.require(:order).permit(:total_price)
   end
 end

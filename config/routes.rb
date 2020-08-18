@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'pages#home'
 
-  resources :boxes, do
-    resources :orders, except: [ :edit, :update]
+  resources :boxes do
+    resources :orders, except: [ :edit, :update ]
   end
 
   #resources :boxes, only: [ :destroy ]
