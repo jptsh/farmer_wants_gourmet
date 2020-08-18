@@ -1,7 +1,35 @@
-
 <!-- banner
 
 list
 boxes
 
 cards -->
+
+<div class="container">
+  <div class="row">
+      <div class="col">
+        <% if @search_query %>
+          <p>You searched for <strong><%= @search_query %></strong>. We have <%= @boxes_result.count %> Box result out of <%= Box.count %> on our website!.</p>
+          <div class="row">
+            <% @boxes_result.each do |box| %>
+                <div class="card-trip">
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+                    <div class="card-trip-infos">
+                        <div>
+                          <h2><%= box.name %></h2>
+                          <p>Short description here!</p>
+                        </div>
+                      <h2 class="card-trip-pricing">£99.99</h2>
+                      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    </div>
+                </div>
+            <% end %>
+          </div>
+        <% else %>
+          <%= render "boxes" %>
+        <% end %>
+      </div>
+  </div>
+  
+</div>
+

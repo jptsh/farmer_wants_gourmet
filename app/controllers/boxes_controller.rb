@@ -1,6 +1,5 @@
 class BoxesController < ApplicationController
 
-
   before_action :set_box, only: [ :show ]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 

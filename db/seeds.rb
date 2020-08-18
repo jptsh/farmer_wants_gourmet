@@ -18,3 +18,7 @@ end
   )
   box.save
 end
+
+Box.create(name: "Carrot Box", weight: 1, size: "small", price: 4, content: "greate and fresh", user_id: rand(User.first.id..User.last.id))
+Box.create(name: "Apple Box", weight: 3, size: "medium", price: 6, content: "boskop fresh", user_id: rand(User.first.id..User.last.id))
+
