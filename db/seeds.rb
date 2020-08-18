@@ -1,4 +1,4 @@
-
+gem 'faker'
 5.times do |i|
   user = User.new(
     email: Faker::Internet.email, 
