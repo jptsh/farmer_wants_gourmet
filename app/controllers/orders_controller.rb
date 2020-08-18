@@ -4,9 +4,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.find(params[:order_id])
+
+    @order = Order.new(order_params)
+    @order.box = @box
+    @order.user = @user 
     @order.save!
-    # redirect_to user_path(@home)
+
+    redirect_to user_path(@home)
 
     # render "order/show"
   end

@@ -16,7 +16,7 @@ class BoxesController < ApplicationController
   def create
     @box = Box.new(box_params)
     if @box.save
-      redirect_to @cocktail, notice: 'Box was successfully created.'
+      redirect_to @box, notice: 'Box was successfully created.'
     else
       render :new
     end
