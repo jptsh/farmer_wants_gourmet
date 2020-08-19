@@ -6,7 +6,9 @@ User.destroy_all
 10.times do
   user = User.new(
     email: Faker::Internet.email, 
-    password: Faker::Internet.password)
+    password: Faker::Internet.password,
+    first_name:Faker::Name.first_name,
+    last_name:Faker::Name.last_name)
   user.save
 end
 
@@ -14,13 +16,15 @@ User.create(email: "mail.jp@protonmail.com", password: 123456)
 
 10.times do
   box = Box.new(
+    name: Faker::Hipster.word,
     content: Faker::Hipster.paragraph, 
-    price: Faker::Number.decimal(l_digits: 2), 
-    user_id:rand(User.first.id..User.last.id)
+    price: rand(1...12),
+    user_id:rand(User.first.id..User.last.id),
+    address:Faker::Address.full_address,
+    weight:rand(1...10)
   )
   box.save
 end
 
-Box.create(name: "Carrot Box", weight: 1, size: "small", price: 4, content: "greate and fresh", user_id: rand(User.first.id..User.last.id))
-Box.create(name: "Apple Box", weight: 3, size: "medium", price: 6, content: "boskop fresh", user_id: rand(User.first.id..User.last.id))
+
 
