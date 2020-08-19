@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+
 .card-trip {
     overflow: hidden;
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     margin: 20px;
     max-width: 400px;
+    font-family: 'Raleway', sans-serif;
+
   }
 
   .card-trip > img {
