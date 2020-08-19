@@ -1,14 +1,14 @@
 .banner {
-    color: white;
+    color: black;
     //text-align: center;
     /* if you have a 70px navbar => height: calc(100vh - 70px); */
-    background-size: cover !important;
+    background-size: cover;
     display: flex;
     align-items: center;
     //justify-content: center;
     margin-bottom: 32px;
 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), asset-url('farm.jpg');
+    // background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), asset-url('farm.jpg');
     height: 600px;
     width: auto;
   }
@@ -20,7 +20,11 @@
   .banner p {
     font-size: 25px;
     font-weight: lighter;
-    color: rgb(255, 255, 255);
+    color: black;
     opacity: 0.6;
     margin-bottom: 30px;
   }
+
+.btn {
+  background-color: #1C3B1C;
+}

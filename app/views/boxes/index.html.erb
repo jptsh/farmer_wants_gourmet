@@ -1,5 +1,8 @@
-
 <div class="container">
+
+  <div class="button">
+      <%= link_to "Add Box", new_box_path,  class: 'btn btn-primary btn-lg' %>
+  </div>
   <div class="row">
       <div class="col">
         <% if @search_query %>
@@ -25,5 +28,6 @@
         <% end %>
       </div>
   </div>
-  
+
 </div>
+
