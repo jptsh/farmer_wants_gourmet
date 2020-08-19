@@ -7,7 +7,7 @@ class BoxesController < ApplicationController
   end
 
   def show
-    #@order = Order.new
+    @order = Order.new
   end
 
   def new
