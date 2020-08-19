@@ -7,8 +7,12 @@
           <div class="row">
             <% @boxes.each do |box| %>
                 <div class="card-trip">
-                  <img src= "<%= cl_image_path cocktail.photos.last.key%>>
+              <% if box.photos.attached? %>
+                  <img src="<%= cl_image_path box.photos.last.key%>">
                     <div class="card-trip-infos">
+                    <%else%>
+                    <img class="card-img-top" src ='https://source.unsplash.com/500x400/?vegetables' alt = 'alternative photo' %>
+                    <%end%>   
                         <div>
                          <h2><%= box.name %></h2>
                           <p><%= box.content %></p>
