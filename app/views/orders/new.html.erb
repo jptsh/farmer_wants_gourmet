@@ -1,0 +1,4 @@
+<%= simple_form_for [@order, @box] do |f| %>
+<%= f.input :total_price %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
