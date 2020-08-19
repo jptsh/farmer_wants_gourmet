@@ -14,7 +14,7 @@ cards -->
           <p>You searched for <strong><%= @search_query %></strong>. We have <%= @boxes_result.count %> Box result out of <%= Box.count %> on our website!.</p>
           <div class="row">
             <% @boxes.each do |box| %>
-                <div class="card-trip">
+                <div class="card-trip" max-width 400px>
                   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
                     <div class="card-trip-infos">
                         <div>
@@ -33,5 +33,5 @@ cards -->
         <% end %>
       </div>
   </div>
-  
+
 </div>
