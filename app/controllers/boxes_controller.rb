@@ -1,7 +1,5 @@
 class BoxesController < ApplicationController
-
-
-  before_action :set_box, only: [ :show ]
+  before_action :set_box, only: [:show]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
@@ -13,18 +11,20 @@ class BoxesController < ApplicationController
   end
 
   def new
-    #@box = Box.new
+    @box = Box.new
+    @user = current_user
   end
 
   def create
+    @user = current_user
     @box = Box.new(box_params)
+    @box[:user_id] = @user.id
     if @box.save
-      redirect_to @box, notice: 'Box was successfully created.'
+      redirect_to :boxes, notice: 'Box was successfully created.'
     else
       render :new
     end
   end
-  
 
   def destroy
   end
@@ -39,7 +39,7 @@ class BoxesController < ApplicationController
   end
 
   def box_params
-    params.require(:box).permit(:name)
+    params.require(:box).permit(:name, :weight, :size, :price, :content)
   end
 
 end
