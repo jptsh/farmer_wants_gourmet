@@ -29,7 +29,7 @@ class BoxesController < ApplicationController
     @box = Box.new(box_params)
     @box[:user_id] = @user.id
     if @box.save
-      redirect_to :boxes, notice: 'Box was successfully created.'
+      redirect_to box_path(@box), notice: 'Box was successfully created.'
     else
       render :new
     end
@@ -48,7 +48,7 @@ class BoxesController < ApplicationController
   end
 
   def box_params
-    params.require(:box).permit(:name, :weight, :size, :price, :content)
+    params.require(:box).permit(:name, :weight, :size, :price, :content, :address, photos: [])
   end
 
 end
