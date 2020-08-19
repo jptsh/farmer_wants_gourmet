@@ -7,6 +7,11 @@
 <p>Price in €: <%= @box.price %></p>
 <p>Farmer's ID: <%= @box.user.first_name %>, <%= @box.user.last_name %></p>
 
+
+<% @box.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <%= link_to 'Back to all boxes', boxes_path, class: 'btn btn-primary' %>
 
 <%= simple_form_for ([@box, @order]) do |f| %>
