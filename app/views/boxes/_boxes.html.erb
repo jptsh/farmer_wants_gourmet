@@ -2,6 +2,7 @@
   <div class="row">
       <div class="col">
             <% @boxes.each do |box| %>
+            <%= link_to box_path(box) do %>
                 <div class="card-trip">
                  <% if box.photos.attached? %>
                   <img src="<%= cl_image_path box.photos.last.key%>">
@@ -19,7 +20,7 @@
                       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
                     </div>
                 </div>
-
+                <% end %>
             <% end %>
           </div>
       </div>
