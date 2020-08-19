@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
 .banner {
-    color: black;
+    color: white;
     //text-align: center;
     /* if you have a 70px navbar => height: calc(100vh - 70px); */
     background-size: cover;
@@ -8,23 +10,29 @@
     //justify-content: center;
     margin-bottom: 32px;
 
-    // background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), asset-url('farm.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), asset-url('farmer.jpg');
     height: 600px;
     width: auto;
   }
   .banner h1 {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    font-family: 'Raleway', sans-serif;
   }
   .banner p {
     font-size: 25px;
     font-weight: lighter;
-    color: black;
+    color: white;
     opacity: 0.6;
     margin-bottom: 30px;
+    font-family: 'Raleway', sans-serif;
   }
 
 .btn {
   background-color: #1C3B1C;
+  border-radius: 20px;
+  border-color: white;
+  font-family: 'Raleway', sans-serif;
+
 }

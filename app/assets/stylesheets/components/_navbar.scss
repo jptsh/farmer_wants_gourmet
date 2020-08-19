@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+
 .navbar-lewagon {
 }
 
@@ -12,16 +15,17 @@
 .navbar-custom {
   background-color: #1C3B1C;
   justify-content: space-between !important;
+  font-family: 'Raleway', sans-serif;
 }
 
 .left-nav {
   display: flex;
-  margin-right: 600px;
+  margin-right: 1000px;
 }
 
 .middle-nav {
   display: flex;
-  margin-right: 50px;
+  margin-right: 70px;
 }
 
 .right-nav {
@@ -42,6 +46,7 @@ color: white !important;
 
 .btn-custom {
   border-radius: 20px;
+  border-color: white;
   background-color: #1C3B1C;
   color: white;
 }

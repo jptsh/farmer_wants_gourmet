@@ -16,6 +16,7 @@ cards -->
           <div class="row">
             <% @boxes.each do |box| %>
                 <div class="card-trip">
+
               <% if box.photos.attached? %>
                   <img src="<%= cl_image_path box.photos.last.key%>">
                     <div class="card-trip-infos">
