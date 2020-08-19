@@ -10,6 +10,8 @@ User.destroy_all
   user.save
 end
 
+User.create(email: "mail.jp@protonmail.com", password: 123456)
+
 10.times do
   box = Box.new(
     content: Faker::Hipster.paragraph, 
