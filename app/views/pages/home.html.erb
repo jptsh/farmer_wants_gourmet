@@ -7,6 +7,7 @@ cards -->
 
    <%= render "shared/banner" %>
 
+
 <div class="container">
   <div class="row">
       <div class="col">
@@ -15,8 +16,13 @@ cards -->
           <div class="row">
             <% @boxes.each do |box| %>
                 <div class="card-trip">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+
+              <% if box.photos.attached? %>
+                  <img src="<%= cl_image_path box.photos.last.key%>">
                     <div class="card-trip-infos">
+                    <%else%>
+                    <img class="card-img-top" src ='https://source.unsplash.com/500x400/?vegetables' alt = 'alternative photo' %>
+                    <%end%>   
                         <div>
                          <h2><%= box.name %></h2>
                           <p><%= box.content %></p>
