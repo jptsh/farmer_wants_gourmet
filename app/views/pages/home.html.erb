@@ -7,6 +7,7 @@ cards -->
 
    <%= render "shared/banner" %>
 
+
 <div class="container">
   <div class="row">
       <div class="col">
@@ -14,9 +15,13 @@ cards -->
           <p>You searched for <strong><%= @search_query %></strong>. We have <%= @boxes_result.count %> Box result out of <%= Box.count %> on our website!.</p>
           <div class="row">
             <% @boxes.each do |box| %>
-                <div class="card-trip" max-width 400px>
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+                <div class="card-trip">
+              <% if box.photos.attached? %>
+                  <img src="<%= cl_image_path box.photos.last.key%>">
                     <div class="card-trip-infos">
+                    <%else%>
+                    <img class="card-img-top" src ='https://source.unsplash.com/500x400/?vegetables' alt = 'alternative photo' %>
+                    <%end%>   
                         <div>
                          <h2><%= box.name %></h2>
                           <p><%= box.content %></p>
