@@ -4,40 +4,33 @@ list
 boxes
 
 cards -->
-
-   <%= render "shared/banner" %>
-
-
-<div class="container">
-  <div class="row">
-      <div class="col">
-        <% if @search_query %>
-          <p>You searched for <strong><%= @search_query %></strong>. We have <%= @boxes_result.count %> Box result out of <%= Box.count %> on our website!.</p>
-          <div class="row">
-            <% @boxes.each do |box| %>
-                <div class="card-trip">
-
+<%= render "shared/banner" %>
+<div class="container" style="display:block;"> <!-- inline css display:block prevents to display result info flex-->
+  <% if @search_query %>
+    <p>You searched for <strong><%= @search_query %></strong> We have <%= @boxes_result.count %> Box as a result out of <%= Box.count %> on our website!.</p>
+    <div class="row mt-4">
+      <% @boxes_result.each do |box| %>
+        <div class="card-trip">
               <% if box.photos.attached? %>
-                  <img src="<%= cl_image_path box.photos.last.key%>">
-                    <div class="card-trip-infos">
-                    <%else%>
-                    <img class="card-img-top" src ='https://source.unsplash.com/500x400/?vegetables' alt = 'alternative photo' %>
-                    <%end%>   
-                        <div>
-                         <h2><%= box.name %></h2>
-                          <p><%= box.content %></p>
-                          <p><%= box.address %></p>
-                        </div>
-                      <h2 class="card-trip-pricing"><%= box.price %> € </h2>
-                      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-                    </div>
+                <img src="<%= cl_image_path box.photos.last.key%>">
+              <%else%>
+                <img class="card-img-top" src ='https://source.unsplash.com/500x400/?vegetables' alt = 'alternative photo' %>
+              <%end%>  
+              <div class="card-trip-infos"> 
+                 <div>     
+                    <%= link_to box_path(box) do %>
+                      <h2><%= box.name %></h2>
+                    <% end %>
+                    <p><strong><%= "#{box.content.to_s.first(10)}..." %></strong></p>
+                    <p><%= box.address.to_s.first(10) %></p>
                 </div>
-            <% end %>
-          </div>
-        <% else %>
-          <%= render "boxes" %>
-        <% end %>
-      </div>
-  </div>
-
+                <h2 class="card-trip-pricing"><%= box.price %> € </h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <%= render "boxes" %>
+  <% end %>
 </div>
