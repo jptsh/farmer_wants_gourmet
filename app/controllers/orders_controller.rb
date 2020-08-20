@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :set_box, only: [:new, :create]
+  #before_action :set_box, only: [:new, :create]
+  #before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
     @orders_of_user = policy_scope(Order).where(:user == current_user)
@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   def new
     @box = Box.find(params[:box_id])
     @order = Order.new
-    authorize @order
+    #authorize @order
   end
 
 
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.box = @box
      @order.save!
-    authorize @order
+    #authorize @order
 
     if @order.save
       redirect_to order_path(@order)
@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    authorize @order
+    #authorize @order
   end
 
   def edit
