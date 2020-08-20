@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
       if order.box.user == current_user
         @incomingorder << order
       else
-        @orderrequest << booking
+        @orderrequest << order
       end
     end
   end
