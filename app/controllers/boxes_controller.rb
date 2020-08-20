@@ -3,6 +3,7 @@ class BoxesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
+  
     if params[:query].present?                                    #Search for query and display
       @search_query = params[:query]
       @boxes = Box.where("name iLike '%#{params[:query]}%'") #Finetune seach for name here
@@ -13,10 +14,20 @@ class BoxesController < ApplicationController
     else                                                          #If not present than list all available boxes
       @boxes = Box.all
     end
+ 
   end
+
+
 
   def show
     @order = Order.new
+    @boxmap = Box.geocoded
+    @marker = @boxmap.map do |boxmap|
+      {
+        lat: boxmap.latitude,
+        lng: boxmap.longitude
+      }
+    end
   end
 
   def new
