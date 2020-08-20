@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
 
 .banner {
@@ -10,29 +11,40 @@
     //justify-content: center;
     margin-bottom: 32px;
 
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), asset-url('farmer.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), asset-url('hand.jpg');
     height: 600px;
     width: auto;
   }
   .banner h1 {
-    font-size: 40px;
+    font-size: 60px;
     font-weight: bold;
-    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-    font-family: 'Raleway', sans-serif;
+    text-shadow: 0px 1px 1px 1px;
+    font-family: 'Lato', sans-serif;
   }
   .banner p {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: lighter;
     color: white;
     opacity: 0.6;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-family: 'Raleway', sans-serif;
   }
 
 .btn {
-  background-color: #1C3B1C;
+  background-color: #024206;
   border-radius: 20px;
   border-color: white;
   font-family: 'Raleway', sans-serif;
+}
 
+.btn-custom {
+  background-color: black;
+  border-radius: 20px;
+  border-color: black;
+  font-family: 'Lato', sans-serif;
+  border-width: 6px;
+}
+
+.banner-content {
+  margin-bottom: 120px;
 }
