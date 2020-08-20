@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :set_box, only: [:new, :create]
 
@@ -9,15 +8,20 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+
   def create
     @box = Box.find(params[:box_id])
     @order = Order.new(order_params)
     @order.box = @box
-    @order.user = @user
+    @order.user = current_user
     @order.total_price = @box.price
     @order.save!
 
-    redirect_to user_path(@home)
+    if @order.save
+      redirect_to box_path(@box), notice: 'You have successfully ordered the box'
+    else
+      render :new
+    end
 
     # render "order/show"
   end
@@ -33,6 +37,6 @@ class OrdersController < ApplicationController
 
 
     def order_params
-      params.require(:order).permit(:total_price)
+      params.permit(:user_id, :box_id)
     end
 end
