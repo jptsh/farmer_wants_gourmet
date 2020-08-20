@@ -20,8 +20,6 @@ class BoxesController < ApplicationController
  
   end
 
-
-
   def show
     @order = Order.new
     @boxmap = Box.geocoded
