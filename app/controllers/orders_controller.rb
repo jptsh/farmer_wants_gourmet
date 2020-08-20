@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_box, only: [:new, :create]
 
   def index
     @orders_of_user = policy_scope(Order).where(:user == current_user)
@@ -21,11 +23,13 @@ class OrdersController < ApplicationController
     authorize @order
   end
 
+
   def create
     @box = Box.find(params[:box_id])
     @order = Order.new(order_params)
     @order.user = current_user
     @order.box = @box
+     @order.save!
     authorize @order
 
     if @order.save
@@ -34,6 +38,7 @@ class OrdersController < ApplicationController
       render :new
     end
   end
+
 
   def show
     @order = Order.find(params[:id])
@@ -46,5 +51,4 @@ class OrdersController < ApplicationController
   def order_params
     params.permit(:user_id, :box_id)
   end
-
 end
