@@ -32,7 +32,7 @@ Box.create(
   name: "Apple Box",
   content: "Our fresh apples", 
   price: rand(1...12),
-  user_id:rand(User.first.id..User.last.id),
+  user_id:231,
   address:Faker::Address.full_address,
   weight:rand(1...10)
 )

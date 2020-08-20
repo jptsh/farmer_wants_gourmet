@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :orders, except: [ :edit, :update ]
   end
 
-  #resources :boxes, only: [ :destroy ]
+  resources :boxes, only: [:destroy]
   resources :orders
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,6 +1,6 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show]
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :show]
 
   def index
     if params[:query].present?                                    #Search for query and display
@@ -10,8 +10,11 @@ class BoxesController < ApplicationController
       .or(Box.where(size: params[:query]))
       .or(Box.where(price: params[:query]))
       .or(Box.where("content iLike '%#{params[:query]}%'"))       #Finetune search for content here
-    else                                                          #If not present than list all available boxes
+    else
       @boxes = Box.all
+      @user = current_user.email                                                 #If not present than list all available boxes
+      @user = User.find_by(email: @user)
+      @user_boxes = Box.where(user_id: @user.id)
     end
   end
 
@@ -36,6 +39,9 @@ class BoxesController < ApplicationController
   end
 
   def destroy
+    @box = Box.find(params[:id])
+    @box.destroy
+    redirect_to boxes_path
   end
 
   def home
