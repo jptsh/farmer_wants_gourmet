@@ -12,6 +12,7 @@
 
   .parent-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
@@ -21,5 +22,10 @@
     flex-wrap: wrap;
     width: 80vw !important;
   }
+
+  img {
+    width: 100%
+  }
+
 
 
