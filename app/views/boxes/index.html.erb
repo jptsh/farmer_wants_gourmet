@@ -11,7 +11,7 @@
             <% @boxes.each do |box| %>
                 <div class="card-trip">
               <% if box.photos.attached? %>
-                  <img src="<%= cl_image_path box.photos.last.key%>">
+                  <img src="<%= cl_image_path box.photos.last.key %>">
                   <div class="card-trip-infos">
                     <%else%>
                     <img class="card-img-top" src ='https://source.unsplash.com/500x400/?vegetables' alt = 'alternative photo' %>
