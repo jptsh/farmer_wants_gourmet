@@ -7,5 +7,9 @@
 <h1>Name of box:<%= @order.box.name %></h1>
 </div>
 <div class= 'container'>
-<p>Farmer's ID: <%= @order.box.user.first_name %>, <%= @order.box.user.last_name %></p>
+<p>The farmer of this box is: <%= @order.box.user.first_name %>, <%= @order.box.user.last_name %></p>
 </div>
+
+
+<%= link_to 'Back to all boxes', boxes_path, class: 'btn btn-primary' %>
+<%= link_to 'Check all your orders', orders_path, class: 'btn btn-primary' %>
