@@ -10,3 +10,16 @@
     transition: opacity 0.3s ease;
   }
 
+  .parent-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .boxes-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80vw !important;
+  }
+
+

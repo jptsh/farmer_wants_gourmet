@@ -1,5 +1,5 @@
 <!-- Before rendering put code between row tags -->
-<div class="row">
+<div class="boxes-container">
   <% @boxes.each do |box| %>
     <div class="card-trip">
       <% if box.photos.attached? %>
@@ -12,7 +12,7 @@
             <%= link_to box_path(box) do %>
               <h2><%= box.name %></h2>
             <% end %>
-            <p><strong><%= "#{box.content.to_s.first(10)}..." %></strong></p>
+            <p><strong><%= "#{box.content.to_s.first(50)}..." %></strong></p>
             <p><%= box.address.to_s.first(10) %></p>
         </div>
         <h2 class="card-trip-pricing"><%= box.price %> € </h2>
