@@ -5,31 +5,32 @@ boxes
 
 cards -->
 <%= render "shared/banner" %>
-<div class="container" style="display:block;"> <!-- inline css display:block prevents to display result info flex-->
+ <!-- inline css display:block prevents to display result info flex-->
   <% if @search_query %>
-    <p>You searched for <strong><%= @search_query %></strong> We have <%= @boxes_result.count %> Box as a result out of <%= Box.count %> on our website!.</p>
-    <div class="row mt-4">
-      <% @boxes_result.each do |box| %>
-        <div class="card-trip">
-              <% if box.photos.attached? %>
-                <img src="<%= cl_image_path box.photos.last.key%>">
-              <%else%>
-                <img class="card-img-top" src ='https://source.unsplash.com/500x400/?vegetables' alt = 'alternative photo' %>
-              <%end%>  
-              <div class="card-trip-infos"> 
-                 <div>     
-                    <%= link_to box_path(box) do %>
-                      <h2><%= box.name %></h2>
-                    <% end %>
-                    <p><strong><%= "#{box.content.to_s.first(10)}..." %></strong></p>
-                    <p><%= box.address.to_s.first(10) %></p>
-                </div>
-                <h2 class="card-trip-pricing"><%= box.price %> € </h2>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-              </div>
+  <p style="text-align:center;">You searched for <strong><%= @search_query %></strong> We have <%= @boxes_result.count %> Box as a result out of <%= Box.count %> on our website!.</p>
+  <div class="parent-container">
+   <div class="boxes-container">
+    <% @boxes_result.each do |box| %>
+    <div class="card-trip">
+      <% if box.photos.attached? %>
+        <img src="<%= cl_image_path box.photos.last.key%>">
+      <%else%>
+        <img class="card-img-top" src ='https://source.unsplash.com/500x400/?vegetables' alt = 'alternative photo' %>
+      <%end%>   
+      <div class="card-trip-infos col-auto mb-3">
+        <div>     
+            <%= link_to box_path(box) do %>
+              <h2><%= box.name %></h2>
+            <% end %>
+            <p><strong><%= "#{box.content.to_s.first(50)}..." %></strong></p>
+            <p><%= box.address.to_s.first(100) %></p>
         </div>
-      <% end %>
+        <h2 class="card-trip-pricing"><%= box.price %> € </h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      </div>
     </div>
+   <% end %>
+</div>
   <% else %>
     <%= render "boxes" %>
   <% end %>
