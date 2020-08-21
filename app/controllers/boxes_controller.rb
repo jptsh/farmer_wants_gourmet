@@ -22,13 +22,12 @@ class BoxesController < ApplicationController
 
   def show
     @order = Order.new
-    @boxmap = Box.geocoded
-    @marker = @boxmap.map do |boxmap|
+   
+    @marker = 
       {
-        lat: boxmap.latitude,
-        lng: boxmap.longitude
+        lat: @order.box.latitude,
+        lng: @order.box.longitude
       }
-    end
   end
 
   def new
