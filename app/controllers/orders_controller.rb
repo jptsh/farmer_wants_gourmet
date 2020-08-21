@@ -3,18 +3,12 @@ class OrdersController < ApplicationController
   #before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
-    @orders_of_user = policy_scope(Order).where(:user == current_user)
+    
+    @user = current_user
+    
+    @boxes = Box.where(user_id: current_user.id)
 
-    @incomingorder = []
-    @orderrequest = []
-
-    @orders_of_user.each do |order|
-      if order.box.user == current_user
-        @incomingorder << order
-      else
-        @orderrequest << order
-      end
-    end
+    @orders = Order.where(user_id: current_user.id)
   end
 
   def new

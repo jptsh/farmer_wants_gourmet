@@ -4,8 +4,8 @@
     <div class="col-sm-6">
       <h1>Bookings for my Boxes</h1>
       <ul>
-        <% @incomingorder.each do |order| %>
-        <li><%= order %></li>
+        <% @orders.each do |order| %>
+        <li><%= order.user.email %></li>
         <% end %>
       </ul>
     </div>
@@ -13,8 +13,10 @@
     <div class="col-sm-6">
       <h1>My orders for other boxes </h1>
       <ul>
-        <% @orderrequest.each do |order| %>
-        <li><%= order %></li>
+        <% @orders.each do |order| %>
+        <li><%= order.box.name %></li>
+        <li><%= order.box.price %></li>
+        <li><%= order.box.address %></li>
         <% end %>
       </ul>
     </div>
