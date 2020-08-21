@@ -2,15 +2,21 @@
 
   <div class="row">
     <div class="col-sm-6">
-      <h1>Bookings for my Boxes</h1>
+      <h1>Purchased boxes</h1>
       <ul>
         <% @orders.each do |order| %>
-        <li><%= order.user.email %></li>
+        <li>
+          <p>
+            You can pick up your <%= order.box.name %> at <%= order.box.address %>
+          </p>
+          <p> Price: <%= order.box.price %> $ </p>
+          <p> Contact details: <%= order.box.user.email %> </p>
+        </li>
         <% end %>
       </ul>
     </div>
 
-    <div class="col-sm-6">
+    <!-- <div class="col-sm-6">
       <h1>My orders for other boxes </h1>
       <ul>
         <% @orders.each do |order| %>
@@ -19,7 +25,7 @@
         <li><%= order.box.address %></li>
         <% end %>
       </ul>
-    </div>
+    </div> -->
 
 
   </div>
